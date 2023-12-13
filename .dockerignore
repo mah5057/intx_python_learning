@@ -1,0 +1,31 @@
+# Compiled code
+bin
+
+# Kanopy files
+**/Dockerfile*
+.dockerignore
+.drone.yml
+environments
+
+# Git files
+.git
+.gitignore
+
+# Docs files
+**/*.md
+
+# Compiled Python files and distributions
+**/__pycache__
+*.pyc
+dist
+build
+**/*.egg-info
+
+# Local env files
+**/.python-version
+**/.tool-versions
+
+# Test files
+**/.pytest_cache/*
+**/.mypy_cache/*
+**/.coverage*

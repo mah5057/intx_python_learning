@@ -1,0 +1,38 @@
+# IDE files
+.idea/*
+*.bak
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+
+# VSCode files
+.env
+.vscode
+.scripts
+
+# Virtual environment
+mana-venv/
+.devcontainer
+.python-version
+
+
+venv/
+.DS_Store
+vscode_resources
+
+#request-cache
+*.sqlite
