@@ -6,4 +6,4 @@ RUN pip install -r /app/requirements.txt
 RUN mkdir /tmp/prometheus_multiproc
 ENV PYTHONPATH='.'
 
-CMD [ "python", "-m", "web_app" ]
+CMD [ "python", "-m", "cat_facts" ]

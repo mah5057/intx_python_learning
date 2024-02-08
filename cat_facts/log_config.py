@@ -2,7 +2,7 @@
 import json
 import logging
 
-from web_app.config import DATETIME_FORMAT, config
+from cat_facts.config import DATETIME_FORMAT, config
 
 BASIC_FORMAT = {
     "app": "new-app",

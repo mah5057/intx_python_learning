@@ -41,6 +41,9 @@ schema = {
         "default": "devel",
     },
     "LOG_LEVEL": {"cast": str, "default": "DEBUG"},
+    "CAT_FACTS_URL": {"cast": str, "default": "https://cat-fact.herokuapp.com"},
+    "DOG_FACTS_URL": {"cast": str, "default": "https://dogapi.dog/api/v2"},
+    "HOST": {"cast": str, "default": "0.0.0.0"}
 }
 
 config = Config(schema)
