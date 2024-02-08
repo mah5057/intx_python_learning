@@ -1,10 +1,10 @@
 """Main entrypoint for the web_app module."""
+from flask import Flask
+
 from cat_facts import log_config
 from cat_facts.config import config
 from cat_facts.clients.cat_facts_client import CatFactsClient
 from cat_facts.clients.dog_facts_client import DogFactsClient
-import requests
-from flask import Flask
 
 
 app = Flask(__name__)
@@ -15,12 +15,14 @@ logger = log_config.get_logger(__name__)
 
 @app.route("/cat")
 def cat():
+    """Cat endpoint."""
     client = CatFactsClient(config.get_env_value("CAT_FACTS_URL"))
     return client.get_cat_facts()
 
 
 @app.route("/dog")
 def dog():
+    """Dog endpoint."""
     client = DogFactsClient(config.get_env_value("DOG_FACTS_URL"))
     return client.get_dog_facts()
 
@@ -37,7 +39,7 @@ def main() -> None:
     # cat_facts = client.get_cat_facts()
     # for fact in cat_facts:
     #     logger.info("Cat fact: %s", fact)
-    
+
 
 if __name__ == "__main__":
     logger.info("Server starting up!")

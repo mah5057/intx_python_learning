@@ -1,16 +1,21 @@
+"""Dog Facts client."""  # pylint: disable=duplicate-code
 import typing
-import requests
+import requests  # type: ignore
 
 from cat_facts import log_config
 
 logger = log_config.get_logger(__name__)
 
-class DogFactsClient:
+
+class DogFactsClient:  # pylint: disable=too-few-public-methods
     """
     General purpose client for the dog facts api
     """
 
-    def __init__(self, base_url: str,) -> None:
+    def __init__(
+        self,
+        base_url: str,
+    ) -> None:
         """
         Constructor
         :param: base_url - The base url for all API requests
@@ -23,13 +28,15 @@ class DogFactsClient:
         """
         url = self.base_url + "/facts"
         json_response = self._make_request("GET", url)
-        
+
         dog_facts = []
-        for obj in json_response["data"]:
+        for obj in json_response["data"]:  # type: ignore
             dog_facts.append(obj["attributes"]["body"])
         return dog_facts
-    
-    def _make_request(self, verb: str, url: str, **kwargs) -> typing.List[typing.Dict]:
+
+    def _make_request(
+        self, verb: str, url: str, **kwargs  # pylint: disable=unused-argument
+    ) -> typing.List[typing.Dict]:
         """
         Make an actual request, include some error handling
         """
@@ -42,4 +49,3 @@ class DogFactsClient:
             logger.exception(msg)
             return []
         return response.json()
-

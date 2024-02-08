@@ -14,8 +14,8 @@ class Config:
 
     @staticmethod
     def get_coerced_env(
-        schema: typing.Dict,
-    ) -> typing.Dict:  # pylint: disable=redefined-outer-name
+        schema: typing.Dict,  # pylint: disable=redefined-outer-name
+    ) -> typing.Dict:
         """Given a schema document, parse with envparse, and construct
         an environment document and return it
         """
@@ -43,7 +43,7 @@ schema = {
     "LOG_LEVEL": {"cast": str, "default": "DEBUG"},
     "CAT_FACTS_URL": {"cast": str, "default": "https://cat-fact.herokuapp.com"},
     "DOG_FACTS_URL": {"cast": str, "default": "https://dogapi.dog/api/v2"},
-    "HOST": {"cast": str, "default": "0.0.0.0"}
+    "HOST": {"cast": str, "default": "0.0.0.0"},
 }
 
 config = Config(schema)

@@ -21,3 +21,11 @@ lint: venv
 	$(VENV); mypy $(SOURCE_DIRS)
 	$(VENV); black --check $(SOURCE_DIRS)
 	$(VENV); pylint $(SOURCE_DIRS)
+
+test: venv
+	$(VENV); pytest -c pytest.ini --cov cat_facts --cov-report term-missing
+
+ci-tests: lint test
+
+format: venv
+	$(VENV); black $(SOURCE_DIRS)

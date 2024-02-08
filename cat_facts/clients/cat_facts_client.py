@@ -1,16 +1,21 @@
+"""Cat facts client."""  # pylint: disable=duplicate-code
 import typing
-import requests
+import requests  # type: ignore
 
 from cat_facts import log_config
 
 logger = log_config.get_logger(__name__)
 
-class CatFactsClient:
+
+class CatFactsClient:  # pylint: disable=too-few-public-methods
     """
     General purpose client for the cat facts api
     """
 
-    def __init__(self, base_url: str,) -> None:
+    def __init__(
+        self,
+        base_url: str,
+    ) -> None:
         """
         Constructor
         :param: base_url - The base url for all API requests
@@ -23,11 +28,13 @@ class CatFactsClient:
         """
         url = self.base_url + "/facts"
         json_response = self._make_request("GET", url)
-        
+
         cat_facts = [fact["text"] for fact in json_response]
         return cat_facts
-    
-    def _make_request(self, verb: str, url: str, **kwargs) -> typing.List[typing.Dict]:
+
+    def _make_request(
+        self, verb: str, url: str, **kwargs  # pylint: disable=unused-argument
+    ) -> typing.List[typing.Dict]:
         """
         Make an actual request, include some error handling
         """
@@ -40,4 +47,3 @@ class CatFactsClient:
             logger.exception(msg)
             return []
         return response.json()
-
