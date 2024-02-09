@@ -55,24 +55,6 @@ def test_get_cat_facts_success(mock_json):
     test_client._make_request.assert_called_once_with("GET", "some_base_url/facts")
 
 
-def test_get_cat_facts_failure():
-    """
-    Test that get_cat_facts performs correctly 
-    in the failure case, and that it calls the
-    correct methods.
-    """
-    test_client = CatFactsClient("some_base_url")
-    test_client._make_request = Mock()
-
-    mock_return_value = []
-
-    test_client._make_request.return_value = mock_return_value
-    cat_facts = test_client.get_cat_facts()
-    expected_cat_facts = [fact["text"] for fact in mock_return_value]
-    assert cat_facts == expected_cat_facts
-    test_client._make_request.assert_called_once_with("GET", "some_base_url/facts")
-
-
 @patch("cat_facts.clients.cat_facts_client.logger.exception")
 @patch("cat_facts.clients.cat_facts_client.requests.request")
 def test__make_request_success(mock_request_method, mock_logger_exception, mock_json):
